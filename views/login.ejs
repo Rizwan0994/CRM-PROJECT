@@ -1,0 +1,89 @@
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/views/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/views/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/views/css/mystyle.css">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+  <style>
+    #backgroundVideo {
+      height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+      }
+  </style>
+  
+</head>
+
+<body>
+  <video autoplay loop muted id="backgroundVideo">
+    <source src="/views/videos/Motion graphics explainer video for a CRM software.mp4" type="video/mp4">
+    not supported
+  </video>
+<form action="/login" method="POST">
+  
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <form class="login100-form validate-form">
+        <span class="login100-form-title p-b-26">
+          Welcome to CRM
+        </span>
+        <span class="login100-form-title p-b-48">
+          <i class="zmdi zmdi-font"></i>
+        </span>
+        <%- include ("./messages") %>
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+          <input class="input100" type="text" name="username">
+          <span class="focus-input100" data-placeholder="Email"></span>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <span class="btn-show-pass">
+            <i class="zmdi zmdi-eye"></i>
+          </span>
+          <input class="input100" type="password" name="password">
+          <span class="focus-input100" data-placeholder="Password"></span>
+        </div>
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+           
+            <button class="login100-form-btn">
+              Login
+            </button>
+          
+          </div>
+          <p>
+            Forgot Password? <a href="/forgot">Reset</a>
+        </p>
+        <!--</div>  <div class="g-recaptcha" data-sitekey="YOUR_KEY" data-callback="correctCaptcha"></div>-->
+        </div>
+        
+        <div class="text-center p-t-115">
+          <span class="txt1">
+            <div class="g-recaptcha" data-sitekey="6Ld8euMfAAAAAEPXBTbjKgL4dbx3pgznOPzvhA99"></div>
+            Don’t have an account?
+          </span>
+
+          <a class="txt2" href="/signup">
+            Sign Up
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+</form>
+
+</body>
+

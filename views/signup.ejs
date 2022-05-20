@@ -1,0 +1,86 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/views/css/signup.css">
+
+
+</head>
+
+
+  
+<div class=" register">
+
+   
+                <div class="row" >
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome to CRM</h3>
+                        <p>“CRM is your GPS to a better route on your Business Development journey.”</p>
+                        <a href="/login"><input type="button"  name="Login" value="Login"/><br/></a>
+                       
+                        
+                    </div>
+                    <div class="col-md-9 register-right">
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Get started with your 15-day free trial</h3>
+                                <form action="/signup" method="POST">
+                                <div class="row register-form">
+                                   
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  name="fname" placeholder="First Name *"  value="<%= typeof fname != 'undefined' ? fname : '' %>" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="lname" placeholder="Last Name *" value="<%= typeof lname != 'undefined' ? lname : '' %>" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" name="password" placeholder="Password *" value="<%= typeof password != 'undefined' ? password : '' %>" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" name="password2" placeholder="Confirm Password *"   value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="username" placeholder="Your Email *"  value="<%= typeof username != 'undefined' ? username : '' %>" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name=phone" class="form-control" placeholder="Your Phone *"  value="<%= typeof phone != 'undefined' ? phone : '' %>" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="answer" placeholder="Enter Your Answer *"  value="<%= typeof answer != 'undefined' ? answer : '' %>" />
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Register"/> 
+                                        </form>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+
+</div>
+       
+
+       
