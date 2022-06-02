@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>   
+<!--   <% if (messages.error) { %>
+  <p style="color:red"><%- messages.error %></p>
+<% } %> -->
+
+<div class="topnav">
+    <div class="search-container">
+      <form action="/display" method="get">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  </div>
+<% if (messages.success) { %>
+    <p class="alert alert-success mt-4"><%- messages.success %></p>
+<% } %>  
+<br>
+
+  <table class="table">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Lastname</th>
+    <th scope="col">Email</th>
+  </tr>
+</thead>
+<%=data.lname%>
+<tbody>
+  <% if(locals.data){
+  for(var i = 0; i< data.length; i++) {%>  
+  <tr>
+    <th scope="row"><%= (i+1) %></th>
+    <td><%= data[i].fname%></td>
+    <td><%= data[i].lname%></td>
+    <td><%= data[i].username%></td>
+  </tr>
+  <% }
+          
+   }else{ %>
+       <tr>
+          <td colspan="3">No user</td>
+       </tr>
+    <% } %>    
+ 
+</tbody>
+</table>
+<form action="/report" method="get">
+    <input type="submit" value="Generate Pdf" />
+  </form>
+
+</body>
+</html>

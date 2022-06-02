@@ -5,6 +5,7 @@ var path='C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment
 
 const express = require("express");
 const app = express();
+const ejs = require('ejs')
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const flash = require("express-flash");
@@ -16,7 +17,7 @@ app.listen(8090);
 
 //------------ Importing  ------------//
 const authController = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/controllers/authcontroller.js");
-const pdf = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/controllers/pdf.js");
+const pdfController = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/controllers/pdfcontroller.js");
 require("./config/passport-config")(passport);
 
 //app.use(require("serve-static")(__dirname + "/../../public"));
@@ -73,10 +74,13 @@ app.get("/client", checkAuthenticated, (req, res) => {
   // res.sendFile(__dirname + '/views/Dashboard2/dashboard.ejs');
   res.render(__dirname + "/views/Dashboard2/client.ejs");
 });
-app.post("/client", checkAuthenticated, (req, res) => {
+
+ app.get("/report", checkAuthenticated, (req, res) => {
   
-  pdf.generatePdf();
-});
+  pdfController.generatePdf();
+  res.redirect("/leads")
+ });
+
 
 app.get("/contacts", checkAuthenticated, (req, res) => {
   // res.sendFile(__dirname + '/views/Dashboard2/dashboard.ejs');
@@ -148,3 +152,38 @@ app.post("/editProfile", authController.editProfilepost);
 app.get("/editProfile", authController.editprofileget);
 
 
+//leads 
+  
+app.get('/leads', function(req, res, next) {
+  MySignup.find((err, lead) => {
+    if (!err) {
+        res.render("leads.ejs", {
+            data: lead
+        });
+    } else {
+        console.log('Failed to retrieve the Course List: ' + err);
+    }
+});
+});
+
+//search.....
+
+app.get('/display', async function(req, res, next) {
+const s=  req.query.search
+  console.log(s)
+MySignup.find({fname:s},(err,user)=>{
+  console.log(""+user)
+if(!err){
+res.render("leads.ejs", {
+  data:user
+ 
+});
+
+}
+else{
+console.log("searching error!")
+}
+});
+  
+  
+});

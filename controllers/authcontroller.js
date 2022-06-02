@@ -90,7 +90,7 @@ exports.registerHandle = (req, res) => {
         });
         const accessToken = oauth2Client.getAccessToken();
 
-        const token = jwt.sign({ fname, username, password }, JWT_KEY, {
+        const token = jwt.sign({ fname,lname, username, password,gender,phone,answer }, JWT_KEY, {
           expiresIn: "30m",
         });
         const CLIENT_URL = "http://" + req.headers.host;
@@ -159,9 +159,9 @@ exports.activateHandle = (req, res) => {
         );
         res.redirect("/signup");
       } else {
-        const { fname, username, password } = decodedToken;
-        const { lname, gender, phone, answer } = req.body;
-        console.log("Last name : ", lname);
+        const { fname,lname, username, password,gender,phone,answer } = decodedToken;
+       
+      
         User.findOne({ username: username }).then((user) => {
           if (user) {
             //------------ User already exists ------------//
@@ -171,16 +171,15 @@ exports.activateHandle = (req, res) => {
             );
             res.redirect("/login");
           } else {
-            console.log("Last name : ", lname);
+            
             const newUser = new User({
               fname,
               lname,
               username,
               password,
-              password,
-              //   gender,
-              // phone,
-              //answer
+               gender,
+               phone,
+              answer
             });
 
             bcryptjs.genSalt(10, (err, salt) => {
@@ -280,7 +279,7 @@ exports.forgotPassword = (req, res) => {
 
             // send mail with defined transport object
             const mailOptions = {
-              from: '"Auth Admin" <nodejsa@gmail.com>', // sender address
+              from: '"CRM Admin" <nodejsa@gmail.com>', // sender address
               to: username, // list of receivers
               subject: "Account Password Reset: NodeJS Auth ✔", // Subject line
               html: output, // html body
@@ -461,7 +460,7 @@ exports.editprofileget = (req, res) => {
   //   //res.render("profile.ejs", { username: user.username });
 };
 
-//review model...................................................
+//review module...................................................
 const Reviews=require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/ReviewSschema.js")
 
 exports.reviewpost=(req,res)=>{
@@ -469,14 +468,14 @@ exports.reviewpost=(req,res)=>{
   const { rname,rusername,rtext } =
     req.body;
      //------------ Checking required fields ------------//
-  if (!rname || !rusername|| !rtext) {
+  /*if (!rname || !rusername|| !rtext) {
    // err_msg = "Fields are empty!";
    // return res.render("contact.ejs", { err_msg: err_msg } );
    errors.push({ err_msg: "Field is empty" });
    res.render(__dirname + "/views/Dashboard2/contact.ejs", {
      errors
    });
-  }
+  }*/
   const review= new Reviews({
     name:rname,
     username:rusername,
