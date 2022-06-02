@@ -1,7 +1,7 @@
 // const { serializeUser, initializer } = require('passport/lib')
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const User = require("C:/Users/Umair Akram/OneDrive - FAST National University/Desktop/Rizwan_projet/CRM-PROJECT/Model/signupSchema.js");
+const User = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/signupSchema.js");
 
 module.exports = function (passport) {
   passport.use(
@@ -42,44 +42,3 @@ module.exports = function (passport) {
     });
   });
 };
-// module.exports = function(passport) {
-// passport.use(new LocalStrategy(
-//   function(username, password, done) {
-//     User.findOne({ username: username }, function (err, user) {
-//       console.log(user)
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false); }
-//       if (!user.verifyPassword(password)) { return done(null, false); }
-//       return done(null, user);
-//     });
-//   }
-// ));
-
-// }
-// async function  initialize (passport, getUserByEmail, getUserById) {
-//    const  authenticateUser =  (email, password, done)  => {
-//     const user =  getUserByEmail(email)
-//     if (user == null) {
-//       return done(null, false, { message: 'No user with that email' })
-//     }
-
-//     try {
-//       if (await bcrypt.compare( password, user.password)) {
-
-//         return done(null, user)
-//       } else {
-//         return done(null, false, { message: 'Password incorrect' })
-//       }
-//     } catch (e) {
-//       return done(e)
-//     }
-//   }
-
-//   passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
-//   passport.serializeUser((user, done) => done(null, user.id))
-//   passport.deserializeUser((id, done) => {
-//     return done(null, getUserById(id))
-//   })
-// }
-
-// module.exports = initialize

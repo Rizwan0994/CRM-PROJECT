@@ -16,6 +16,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "googleapis": "^100.0.0",
+    "handlebars": "^4.7.7",
     "html": "^1.0.0",
     "html-get": "^2.9.14",
     "jsonwebtoken": "^8.5.1",
@@ -26,7 +27,7 @@
     "nodemailer": "^6.7.5",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
-    "puppeteer": "^13.5.2"
+    "puppeteer": "^13.7.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",

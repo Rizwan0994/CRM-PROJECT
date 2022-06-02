@@ -24,7 +24,7 @@ app.use(
   })
 );
 //------------ User Model ------------//
-const User = require("C:/Users/Umair Akram/OneDrive - FAST National University/Desktop/Rizwan_projet/CRM-PROJECT/Model/signupSchema.js");
+const User = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/signupSchema.js");
 var sess;
 
 //------------ Register Handle ------------//
@@ -454,9 +454,41 @@ exports.editprofileget = (req, res) => {
         username: user.username,
       });
     } else {
-      console.log("Failed to retrieve the Course List: " + err);
+      console.log("Failed to retrieve the  List: " + err);
     }
   });
 
   //   //res.render("profile.ejs", { username: user.username });
+};
+
+//review model...................................................
+const Reviews=require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/ReviewSschema.js")
+
+exports.reviewpost=(req,res)=>{
+  let errors = [];
+  const { rname,rusername,rtext } =
+    req.body;
+     //------------ Checking required fields ------------//
+  if (!rname || !rusername|| !rtext) {
+   // err_msg = "Fields are empty!";
+   // return res.render("contact.ejs", { err_msg: err_msg } );
+   errors.push({ err_msg: "Field is empty" });
+   res.render(__dirname + "/views/Dashboard2/contact.ejs", {
+     errors
+   });
+  }
+  const review= new Reviews({
+    name:rname,
+    username:rusername,
+    message:rtext
+
+  });
+  review.save()
+  .then((result)=>{
+    res.send(result);
+  })
+  .catch((err)=>{
+console.log(err)
+  })
+  res.redirect("/home")
 };
