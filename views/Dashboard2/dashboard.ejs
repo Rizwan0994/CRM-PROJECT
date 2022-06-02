@@ -3,8 +3,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Relationship Mangement System</title>
-    <link rel="stylesheet" type="text/css" href="views/css/all.css" />
-    <link rel="stylesheet" type="text/css" href="views/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/views/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="/views/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/views/css/graph.css" />
     
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -29,7 +30,7 @@
 
         <!-- Carrotsuite navigation -->
         <nav class="carrotsuite-nav">
-          <div class="" style="padding-right: 0px;">
+          <div class="" style="padding-right: 700px;">
             <a href="/home" class="active nav-item">  
            <img src="/views/assets/logo.png" alt="logo" width="50" height="50">
           <h4 class="navbar-brand" href="#!" style="font-family: Georgia, serif; ">Infinity CRM</h4>
@@ -46,8 +47,8 @@
             <a href="#" class="nav-item"><i class="far fa-envelope"></i></a>
           </div>
           <div class="user" id="user">
-            <a href="#" class="user-link">Admin</a>
-            <button type="submit">Log Out</button>
+            <a href="#" class="user-link"  style="color: #555555;"> Admin</a>
+            <button type="submit" style="color: #555555;">  LOGOUT</button>
             <div class="user-img-wrapper">
               <img src="/views/Dashboard2/images/useravatar.png" alt="User 1" />
             </div>
@@ -74,7 +75,7 @@
               </a>
             </li>
             <li>
-              <a href="#" title="Upcoming birthdays">
+              <a href="leads" title="Upcoming birthdays">
                 <i class="fas fa-birthday-cake"></i>
                 <span>Leads</span>
               </a>
@@ -276,69 +277,96 @@
                 <i class="fas fa-plus"></i>Create Customer
               </button>
             </section>
-            <form action="" class="form">
-              <div class="form-element">
-                <label for="start_date">Start date</label>
-                <input type="date" name="start_date" id="start_date" />
-              </div>
-              <div class="form-element">
-                <label for="end_date">End date</label>
-                <input type="date" name="end_date" id="end_date" />
-              </div>
-              <div class="form-element">
-                <label for="status">Select status</label>
-                <select name="status" id="status">
-                  <option value="" disabled>All clients</option>
-                  <option value="">Status 1</option>
-                  <option value="">Status 2</option>
-                </select>
-              </div>
-              <div class="form-element">
-                <label for="items">Item</label>
-                <select name="items" id="items">
-                  <option value="" disabled>Select an item</option>
-                  <option value="">Item 1</option>
-                  <option value="">Item 2</option>
-                </select>
-              </div>
-
-              <div class="form-element">
-                <label for="country">Country</label>
-                <select name="country" id="country">
-                  <option value="" disabled>Select country</option>
-                  <option value="">Status 1</option>
-                  <option value="">Status 2</option>
-                </select>
-              </div>
-              <div class="form-element">
-                <label for="state">State</label>
-                <select name="state" id="state">
-                  <option value="" disabled>Select state</option>
-                  <option value="">Item 1</option>
-                  <option value="">Item 2</option>
-                </select>
-              </div>
-              <div class="form-element">
-                <label for="marketer">Marketer</label>
-                <select name="marketer" id="marketer">
-                  <option value="" disabled>Select marketer</option>
-                  <option value="">Item 1</option>
-                  <option value="">Item 2</option>
-                </select>
-              </div>
-              <div class="form-element">
-                <label for="branch">Branch</label>
-                <select name="branch" id="branch">
-                  <option value="" disabled>Select branch</option>
-                  <option value="">Item 1</option>
-                  <option value="">Item 2</option>
-                </select>
-              </div>
-            </form>
+           
           </article>
+          <div class="main-container">
+            <div class="year-stats">
+              <div class="month-group">
+                <div class="bar h-100"></div>
+                <p class="month">Jan</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-50"></div>
+                <p class="month">Feb</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-75"></div>
+                <p class="month">Mar</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-25"></div>
+                <p class="month">Apr</p>
+              </div>
+              <div class="month-group selected">
+                <div class="bar h-100"></div>
+                <p class="month">May</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-50"></div>
+                <p class="month">Jun</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-75"></div>
+                <p class="month">Jul</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-25"></div>
+                <p class="month">Aug</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-50"></div>
+                <p class="month">Sep</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-75"></div>
+                <p class="month">Oct</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-25"></div>
+                <p class="month">Nov</p>
+              </div>
+              <div class="month-group">
+                <div class="bar h-100"></div>
+                <p class="month">Dez</p>
+              </div>
+            </div>
+        
+            <div class="stats-info">
+              <div class="graph-container">
+                <div class="percent">
+                  <svg viewBox="0 0 36 36" class="circular-chart">
+                    <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                </div>
+                <p>Total: $2075</p>
+              </div>
+        
+              <div class="info">
+                
+                  <p style="color:  #4cc790; font-size: 18px;">Incoming Sales <span>2750$</span></p>
+                <p style="color: #e59f3c; font-size: 18px;">Daily Sales   <span>1080$</span></p>
+                <p style="color:  #915db1; font-size: 18px;">Total Transactions <span>$820</span></p>
+                  <p style="color:  #915db1; font-size: 18px;">Daily Connection  <span>$100</span></p>
+              </div>
+            </div>
+          </div>
         </section>
+        
       </main>
+      
     </div>
+    
     <script>
       const menuLinks = document.querySelectorAll(".sidebar .menu a");
 
