@@ -9,6 +9,7 @@ const JWT_RESET_KEY = "jwtreset987";
 const express = require("express");
 const app = express();
 const session = require("express-session");
+app.use("/views", express.static(__dirname + "/views"));
 app.use(
   require("express-session")({
     secret: "keyboard cat",
@@ -24,7 +25,7 @@ app.use(
   })
 );
 //------------ User Model ------------//
-const User = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/signupSchema.js");
+const User = require("../Model/signupSchema.js");
 var sess;
 
 //------------ Register Handle ------------//
@@ -461,7 +462,7 @@ exports.editprofileget = (req, res) => {
 };
 
 //review module...................................................
-const Reviews=require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/ReviewSschema.js")
+const Reviews=require("../Model/ReviewSschema.js")
 
 exports.reviewpost=(req,res)=>{
   let errors = [];

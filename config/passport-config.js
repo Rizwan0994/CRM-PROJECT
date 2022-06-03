@@ -1,7 +1,7 @@
 // const { serializeUser, initializer } = require('passport/lib')
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const User = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/signupSchema.js");
+const User = require("../Model/signupSchema.js");
 
 module.exports = function (passport) {
   passport.use(

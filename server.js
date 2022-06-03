@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-var path='C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/Model/signupSchema.js';
+
 
 const express = require("express");
 const app = express();
@@ -12,12 +12,12 @@ const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
 app.use("/views", express.static(__dirname + "/views"));
-const MySignup = require(path);
+const MySignup = require("./Model/signupSchema.js");
 app.listen(8090);
 
 //------------ Importing  ------------//
-const authController = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/controllers/authcontroller.js");
-const pdfController = require("C:/Users/xshow/Desktop/New folder (2)/19F-0994_BS SE-6A_WEB_Assingment1.0/Project/controllers/pdfcontroller.js");
+const authController = require("./controllers/authcontroller.js");
+const pdfController = require("./controllers/pdfcontroller.js");
 require("./config/passport-config")(passport);
 
 //app.use(require("serve-static")(__dirname + "/../../public"));
